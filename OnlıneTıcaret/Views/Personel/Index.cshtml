@@ -1,0 +1,36 @@
+﻿@using OnlıneTıcaret.Models.Sınıflar
+@model List<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<center><h2>PERSONEL SAYFASI</h2></center>
+<br />
+<table class="table table-bordered" style="margin-top: 20px;margin-left: 20px">
+    <tr>
+        <th>ID</th>
+        <th>PERSONEL AD</th>
+        <th>SOYAD</th>
+        <th>GÖRSEL</th>
+        <th>DEPARTMAN ADI</th>
+        <th>GÜNCELLE</th>
+        <th>SATIŞLAR</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            <td>@k.Personelid</td>
+            <td>@k.PersonelAd</td>
+            <td>@k.PersonelSoyad</td>
+            <td>@k.PersonelGorsel</td>
+            <td>@k.Departman.DepartmanAd</td>
+            <td><a href="/Personel/PersonelGetir/@k.Personelid" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Departman/DepartmanPersonelSatis/@k.Personelid" class="btn btn-success" style="background-color: coral">Detaylar</a></td>
+        </tr>
+
+    }
+</table>
+<a href="/Personel/PersonelEkle/" class="btn btn-info" style="margin-left: 20px">Personel Ekle</a>

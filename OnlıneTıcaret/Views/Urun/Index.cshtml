@@ -1,0 +1,41 @@
+﻿@using OnlıneTıcaret.Models.Sınıflar
+@model List<Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br/>
+<center><h2>Ürünler</h2></center>
+<br/>
+
+<table class="table table-bordered" style="margin-left: 20px">
+    <tr>
+        <th>ID</th>
+        <th>ÜRÜN</th>
+        <th>MARKA</th>
+        <th>STOK</th>
+        <th>ALIŞ FİYAT</th>
+        <th>SATIŞ FİYAT</th>
+        <th>GÖRSEL</th>
+        <th>KATEGORİ</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    @foreach (var u in Model)
+    {
+        <tr>
+            <td>@u.UrunID</td>
+            <td>@u.UrunAd</td>
+            <td>@u.Marka</td>
+            <td>@u.Stok</td>
+            <td>@u.AlisFiyat</td>
+            <td>@u.SatisFiyat</td>
+            <td>@u.UrunGorsel</td>
+            <td>@u.Kategori.KategoriAd</td>
+            <td><a href="/Urun/UrunSil/@u.UrunID" class="btn btn-danger">SİL</a></td>
+            <td><a href="/Urun/UrunGetir/@u.UrunID" class="btn btn-success">GÜNCELLE</a></td>
+        </tr>
+    }
+</table>
+<a href="/Urun/YeniUrun" class="btn badge-info" style="margin-left: 20px">Yeni Ürün</a>
+

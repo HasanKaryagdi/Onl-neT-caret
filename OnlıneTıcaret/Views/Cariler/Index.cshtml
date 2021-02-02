@@ -1,0 +1,36 @@
+﻿@using OnlıneTıcaret.Models.Sınıflar
+@model List<Cariler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br/>
+<center><h2>MÜŞTERİLER</h2></center>
+<br/>
+<table class="table table-striped" style="margin-left: 20px">
+    <tr>
+        <td>MÜŞTERİ ID</td>
+        <td>AD</td>
+        <td>SOYAD</td>
+        <td>ŞEHİR</td>
+        <td>MAİL</td>
+        <td>SİL</td>
+        <td>GÜNCELLE</td>
+        <td>DETAYLAR</td>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Cariid</td>
+            <td>@x.CariAd</td>
+            <td>@x.CariSoyad</td>
+            <td>@x.CariSehir</td>
+            <td>@x.CariMail</td>
+            <td><a href="/Cariler/CariSil/@x.Cariid" class="btn btn-danger">SİL</a></td>
+            <td><a href="/Cariler/CariGetir/@x.Cariid" class="btn btn-warning">GÜNCELLE</a></td>
+            <td><a href="/Cariler/MusteriSatis/@x.Cariid" class="btn btn-success" style="background-color: coral">SATIŞ GEÇMİŞİ</a></td>
+        </tr>
+    }
+</table>
+<a href="/Cariler/YeniCari/" class="btn btn-info" style="margin-left: 20px">Müşteri Ekle</a>
+

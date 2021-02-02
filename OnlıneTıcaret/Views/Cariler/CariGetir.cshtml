@@ -1,0 +1,34 @@
+﻿@model OnlıneTıcaret.Models.Sınıflar.Cariler
+@{
+    ViewBag.Title = "CariGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<center><h2>MÜŞTERİ GÜNCELLEME SAYFASI</h2></center>
+<br />
+@using (Html.BeginForm("CariGuncelle", "Cariler", FormMethod.Post))
+{
+    <div class="form-group" style="margin-left: 20px">
+        @Html.HiddenFor(x => x.Cariid)
+        @Html.LabelFor(x => x.CariAd)
+        @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x=>x.CariAd,"",new  { @style="color:red"})
+        <br />
+        @Html.LabelFor(x => x.CariSoyad)
+        @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x=>x.CariSoyad,"",new  { @style="color:red"})
+
+        <br />
+        @Html.LabelFor(x => x.CariSehir)
+        @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.CariMail)
+        @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-warning">GÜNCELLE</button>
+
+    </div>
+
+}
+
+

@@ -1,0 +1,31 @@
+﻿@using OnlıneTıcaret.Models.Sınıflar
+@model List<FaturaKalem>
+@{
+    ViewBag.Title = "FaturaDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<center><h2>FATURA KALEMLERİ SAYFASI</h2></center>
+<br />
+<table class="table table-hover" style="margin-left: 20px">
+    <tr>
+        <th>ID</th>
+        <th>AÇIKLAMA</th>
+        <th>MİKTAR</th>
+        <th>BİRİM FİYAT</th>
+        <th>TUTAR</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.FaturaKalemid</td>
+            <td>@x.Aciklama</td>
+            <td>@x.Miktar</td>
+            <td>@x.BirimFiyat</td>
+            <td>@x.Tutar</td>
+        </tr>
+    }
+</table>
+<a href="/Fatura/YeniKalem/" class=" btn btn-warning" style="margin-left: 20px">Kalem Girişi</a>
+

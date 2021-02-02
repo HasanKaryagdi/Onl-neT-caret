@@ -1,0 +1,46 @@
+﻿@using OnlıneTıcaret.Models.Sınıflar
+@model List<Faturalar>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<center><h2>DEPARTMAN</h2></center>
+<br />
+<table class="table table-bordered" style="margin-top: 20px;margin-left: 20px">
+    <tr>
+        <th>ID</th>
+        <th>SERİ NO</th>
+        <th>SIRA NO</th>
+        <th>VERGİ DAİRESİ</th>
+        <th>TARİH</th>
+        <th>SAAT</th>
+        <th>TESLİM EDEN</th>
+        <th>TESLİM ALAN</th>
+        <th>TOPLAM</th>
+        <th>GÜNCELLE</th>
+        <th>DETAYLAR</th>
+
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            <td>@k.Faturaid</td>
+            <td>@k.FaturaSeriNo</td>
+            <td>@k.FaturaSıraNo</td>
+            <td>@k.VergiDairesi</td>
+            <td>@k.Tarih</td>
+            <td>@k.Saat</td>
+            <td>@k.TeslimEden</td>
+            <td>@k.TeslimAlan</td>
+            <td>@k.Toplam</td>
+            <td><a href="/Fatura/FaturaGetir/@k.Faturaid" class="btn btn-danger">Güncelle</a></td>
+            <td><a href="/Fatura/FaturaDetay/@k.Faturaid" class="btn btn-success">Detaylar</a></td>
+        </tr>
+
+    }
+</table>
+<br/>
+<a href="/Fatura/FaturaEkle/" class="btn btn-info" style="margin-left: 20px">Yeni Fatura Girişi</a>

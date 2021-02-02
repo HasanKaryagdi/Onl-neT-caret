@@ -1,0 +1,17 @@
+﻿@model OnlıneTıcaret.Models.Sınıflar.Departman
+@{
+    ViewBag.Title = "DepartmanGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br/>
+<center><h2>DEPARTMAN GÜNCELLE</h2></center>
+<br />
+@using (Html.BeginForm("DepartmanGuncelle", "Departman", FormMethod.Post))
+{
+    <div class="form-group" style="margin-left: 20px">
+        @Html.LabelFor(x => x.DepartmanAd)
+        @Html.TextBoxFor(x => x.DepartmanAd, new { @class = "form-control" })
+        @Html.HiddenFor(x=>x.Departmanid)
+    </div>
+    <button class="btn btn-warning" style="margin-left: 20px">Güncelle</button>
+}
