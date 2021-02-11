@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Web;
 using System.Web.Mvc;
 using OnlıneTıcaret.Models.Sınıflar;
@@ -58,6 +59,12 @@ namespace OnlıneTıcaret.Controllers
             prsnl.DepartmanID = p.DepartmanID;
             c.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult PersonelListe()
+        {
+            var sorgu = c.Personels.ToList();
+            return View(sorgu);
         }
     }
 }

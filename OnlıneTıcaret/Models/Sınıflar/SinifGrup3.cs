@@ -5,9 +5,9 @@ using System.Web;
 
 namespace OnlıneTıcaret.Models.Sınıflar
 {
-    public class SinifGrup2
+    public class SinifGrup3
     {
-        public string Departman { get; set; }
-        public int Sayi { get; set; }
+        public int sayi { get; set; }
+        public string marka { get; set; }
     }
 }
